@@ -13,7 +13,6 @@ export default function SideMenu({
  
   const [filtersVisible, setFiltersVisible] = useState(false);
 
-  y
   const toggleFilters = () => {
     setFiltersVisible(!filtersVisible);
   };

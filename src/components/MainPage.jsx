@@ -9,25 +9,21 @@ const MainPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-   
     axios
       .get("https://beta.tripkolic.com/api/v1/product/task/tours")
       .then((response) => {
-        console.log(response.data); 
+        console.log(response.data);
 
-        
         if (Array.isArray(response.data.products)) {
-          setTours(response.data.products); 
+          setTours(response.data.products);
         }
-        setLoading(false); 
+        setLoading(false);
       })
       .catch((error) => {
-        setError(error); 
-        setLoading(false); 
+        setError(error);
+        setLoading(false);
       });
-  }, []); 
-
-  
+  }, []);
 
   return (
     <div>
@@ -40,8 +36,8 @@ const MainPage = () => {
             location={tour.activityLocation}
             price={tour.price}
             vehicle={tour.vehicle}
-            rating={4.2} 
-            image={tour.galleries?.[0]?.url || "/logo.jpg"} 
+            rating={4.2}
+            image={tour.galleries?.[0]?.url || "/logo.jpg"}
           />
         ))}
       </div>
